@@ -10,7 +10,7 @@
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "flowframe/laravel-trend": "^0.3.0",
-        "laravel/framework": "^11.32",
+        "laravel/framework": "^11.33",
         "laravel/tinker": "^2.10",
         "smartleads/eloquent-eager-limit": "dev-master",
         "spatie/laravel-medialibrary": "^11.11.1",
