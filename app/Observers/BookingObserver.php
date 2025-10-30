@@ -7,6 +7,9 @@ use App\Services\PricingService;
 
 class BookingObserver
 {
+    /**
+     * Handle the Booking "creating" event.
+     */
     public function creating(Booking $booking)
     {
         $booking->total_price = (new PricingService())->calculateApartmentPriceForDates(

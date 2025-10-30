@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Facility;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FacilitySeeder extends Seeder
@@ -27,7 +26,6 @@ class FacilitySeeder extends Seeder
         Facility::create(['category_id' => 6, 'name' => __('WiFi')]);
         Facility::create(['category_id' => 6, 'name' => __('TV')]);
 
-        // Property facilities:
         Facility::create(['name' => __('Family rooms')]);
         Facility::create(['name' => __('Free WiFi')]);
         Facility::create(['name' => __('Parking')]);

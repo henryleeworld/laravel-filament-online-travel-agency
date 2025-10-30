@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Bed extends Model
 {
+    /** @use HasFactory<\Database\Factories\BedFactory> */
     use HasFactory;
 
     /**
@@ -18,18 +19,18 @@ class Bed extends Model
     protected $fillable = ['room_id', 'bed_type_id', 'name'];
 
     /**
-     * Get the room that owns the bed.
-     */
-    public function room(): BelongsTo
-    {
-        return $this->belongsTo(Room::class);
-    }
-
-    /**
      * Get the bed type that owns the bed.
      */
     public function bed_type(): BelongsTo
     {
         return $this->belongsTo(BedType::class);
+    }
+
+    /**
+     * Get the room that owns the bed.
+     */
+    public function room(): BelongsTo
+    {
+        return $this->belongsTo(Room::class);
     }
 }

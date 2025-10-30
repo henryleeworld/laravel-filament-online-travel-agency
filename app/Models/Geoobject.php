@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Geoobject extends Model
 {
+    /** @use HasFactory<\Database\Factories\GeoobjectFactory> */
     use HasFactory;
 
     /**

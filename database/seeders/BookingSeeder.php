@@ -6,7 +6,6 @@ use App\Models\Apartment;
 use App\Models\Booking;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BookingSeeder extends Seeder

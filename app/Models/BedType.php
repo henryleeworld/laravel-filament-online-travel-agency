@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BedType extends Model
 {
+    /** @use HasFactory<\Database\Factories\BedTypeFactory> */
     use HasFactory;
 
     /**

@@ -6,6 +6,9 @@ use App\Models\Property;
 
 class PropertyObserver
 {
+    /**
+     * Handle the Property "creating" event.
+     */
     public function creating(Property $property)
     {
         if (auth()->check()) {

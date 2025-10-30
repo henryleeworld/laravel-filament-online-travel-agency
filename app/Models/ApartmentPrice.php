@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApartmentPrice extends Model
 {
+    /** @use HasFactory<\Database\Factories\ApartmentPriceFactory> */
     use HasFactory, ValidForRange;
 
     /**

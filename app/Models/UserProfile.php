@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
+    /** @use HasFactory<\Database\Factories\UserProfileFactory> */
     use HasFactory;
 }

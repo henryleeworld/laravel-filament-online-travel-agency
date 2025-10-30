@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Apartment;
 use App\Models\Property;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ApartmentSeeder extends Seeder

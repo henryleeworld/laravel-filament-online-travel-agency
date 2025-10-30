@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Facility extends Model
 {
+    /** @use HasFactory<\Database\Factories\FacilityFactory> */
     use HasFactory;
 
     /**

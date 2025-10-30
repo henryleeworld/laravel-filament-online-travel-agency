@@ -19,6 +19,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 #[ObservedBy([PropertyObserver::class])]
 class Property extends Model implements HasMedia
 {
+    /** @use HasFactory<\Database\Factories\PropertyFactory> */
     use HasEagerLimit, HasFactory, InteractsWithMedia;
 
     /**
@@ -38,40 +39,11 @@ class Property extends Model implements HasMedia
     ];
 
     /**
-     * Get the city that owns the property.
-     */
-    public function city(): BelongsTo
-    {
-        return $this->belongsTo(City::class);
-    }
-
-    /**
      * Get all of the apartments for the property.
      */
     public function apartments(): HasMany
     {
         return $this->hasMany(Apartment::class);
-    }
-
-    public function address(): Attribute
-    {
-        return new Attribute(
-            get: fn () => $this->address_street .', ' . $this->address_postcode . ', ' . $this->city->name
-        );
-    }
-
-    /**
-     * The facilities that belong to the property.
-     */
-    public function facilities(): BelongsToMany
-    {
-        return $this->belongsToMany(Facility::class);
-    }
-
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumbnail')
-            ->width(800);
     }
 
     /**
@@ -83,10 +55,39 @@ class Property extends Model implements HasMedia
     }
 
     /**
+     * Get the city that owns the property.
+     */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    /**
+     * The facilities that belong to the property.
+     */
+    public function facilities(): BelongsToMany
+    {
+        return $this->belongsToMany(Facility::class);
+    }
+
+    /**
      * Get the owner that owns the property.
      */
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function address(): Attribute
+    {
+        return new Attribute(
+            get: fn () => $this->address_street .', ' . $this->address_postcode . ', ' . $this->city->name
+        );
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumbnail')
+            ->width(800);
     }
 }

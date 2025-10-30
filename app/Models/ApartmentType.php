@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApartmentType extends Model
 {
+    /** @use HasFactory<\Database\Factories\ApartmentTypeFactory> */
     use HasFactory;
 
     /**

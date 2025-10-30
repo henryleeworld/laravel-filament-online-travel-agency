@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FacilityCategory extends Model
 {
+    /** @use HasFactory<\Database\Factories\FacilityCategoryFactory> */
     use HasFactory;
 
     /**

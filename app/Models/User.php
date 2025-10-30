@@ -54,15 +54,15 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return $this->role_id === Role::ROLE_ADMINISTRATOR;
     }
 
     /**
-     * Get the role that owns the user.
+     * Get the bookings for the user.
      */
-    public function role(): BelongsTo
+    public function bookings(): HasMany
     {
-        return $this->belongsTo(Role::class);
+        return $this->hasMany(Booking::class);
     }
 
     /**
@@ -74,15 +74,10 @@ class User extends Authenticatable implements FilamentUser
     }
 
     /**
-     * Get the bookings for the user.
+     * Get the role that owns the user.
      */
-    public function bookings(): HasMany
+    public function role(): BelongsTo
     {
-        return $this->hasMany(Booking::class);
-    }
-
-    public function canAccessFilament(): bool
-    {
-        return $this->role_id === Role::ROLE_ADMINISTRATOR;
+        return $this->belongsTo(Role::class);
     }
 }

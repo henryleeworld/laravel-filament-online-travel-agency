@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 #[ObservedBy([BookingObserver::class])]
 class Booking extends Model
 {
+    /** @use HasFactory<\Database\Factories\BookingFactory> */
     use HasFactory, SoftDeletes, ValidForRange;
 
     /**

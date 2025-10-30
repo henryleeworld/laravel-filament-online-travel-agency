@@ -1,4 +1,4 @@
-# Laravel 11 Filament 線上旅行社
+# Laravel 12 Filament 線上旅行社
 
 Filament 線上旅行社採用快速建立簡捷的 TALL（Tailwind CSS、Alpine.js、Laravel 和 Livewire）堆疊應用程式的工具組，公寓、飯店因線上旅行社（OTA）能帶來可觀的流量而選擇與其建立合作關係，以增加曝光度、提升聲譽、填補住房淡季、提高銷售額、獲得競爭優勢等，對於旅客來說，住宿的價格是決定旅程的首要考量，但疫情讓旅程取消的彈性重視度緊隨其後。
 
@@ -27,8 +27,8 @@ $ php artisan migrate --seed
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/1jeHb0E.png)
+![](https://i.imgur.com/e0dY80Z.png)
 > 面對的挑戰不僅僅是市場的激烈競爭，還有旅遊淡旺季、政策、疫情及成本等因素的考量
 
-![](https://i.imgur.com/lUmdkRg.png)
+![](https://i.imgur.com/uzc6fKc.png)
 > 在受理預訂之後，就會為預訂的顧客保留房間，但若是預訂被突然取消，原本預訂的客房就會變成空房，導致原本應該獲得的收益歸零，對於業主而言就是經營上的財物損失

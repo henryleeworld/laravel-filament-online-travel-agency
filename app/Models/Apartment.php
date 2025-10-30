@@ -13,6 +13,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Apartment extends Model
 {
+    /** @use HasFactory<\Database\Factories\ApartmentFactory> */
     use HasEagerLimit, HasFactory;
 
     /**
@@ -31,14 +32,6 @@ class Apartment extends Model
     ];
 
     /**
-     * Get the property that owns the apartment.
-     */
-    public function property(): BelongsTo
-    {
-        return $this->belongsTo(Property::class);
-    }
-
-    /**
      * Get the apartment type that owns the apartment.
      */
     public function apartment_type(): BelongsTo
@@ -47,19 +40,51 @@ class Apartment extends Model
     }
 
     /**
-     * Get the rooms for the apartment.
-     */
-    public function rooms(): HasMany
-    {
-        return $this->hasMany(Room::class);
-    }
-
-    /**
      * Get all of the beds for the apartment.
      */
     public function beds(): HasManyThrough
     {
         return $this->hasManyThrough(Bed::class, Room::class);
+    }
+
+    /**
+     * Get the bookings for the apartment.
+     */
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * The facilities that belong to the apartment.
+     */
+    public function facilities(): BelongsToMany
+    {
+        return $this->belongsToMany(Facility::class);
+    }
+
+    /**
+     * Get the prices for the apartment.
+     */
+    public function prices(): HasMany
+    {
+        return $this->hasMany(ApartmentPrice::class);
+    }
+
+    /**
+     * Get the property that owns the apartment.
+     */
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    /**
+     * Get the rooms for the apartment.
+     */
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(Room::class);
     }
 
     public function bedsList(): Attribute
@@ -81,29 +106,5 @@ class Apartment extends Model
         return new Attribute(
             get: fn () => $bedsList
         );
-    }
-
-    /**
-     * The facilities that belong to the apartment.
-     */
-    public function facilities(): BelongsToMany
-    {
-        return $this->belongsToMany(Facility::class);
-    }
-
-    /**
-     * Get the prices for the apartment.
-     */
-    public function prices(): HasMany
-    {
-        return $this->hasMany(ApartmentPrice::class);
-    }
-
-    /**
-     * Get the bookings for the apartment.
-     */
-    public function bookings(): HasMany
-    {
-        return $this->hasMany(Booking::class);
     }
 }

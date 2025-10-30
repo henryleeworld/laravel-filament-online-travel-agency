@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\FacilityCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FacilityCategorySeeder extends Seeder

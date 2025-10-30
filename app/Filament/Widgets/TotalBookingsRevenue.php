@@ -3,13 +3,13 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Booking;
-use Filament\Widgets\LineChartWidget;
+use Filament\Widgets\ChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 
-class TotalBookingsRevenue extends LineChartWidget
+class TotalBookingsRevenue extends ChartWidget
 {
-    protected static ?string $heading = 'Total bookings revenue for the last 30 days';
+    protected ?string $heading = 'Total bookings revenue for the last 30 days';
 
     protected int | string | array $columnSpan = 'full';
 
@@ -36,6 +36,11 @@ class TotalBookingsRevenue extends LineChartWidget
 
     public function getHeading(): string
     {
-        return __(static::$heading);
+        return __($this->heading);
+    }
+
+    protected function getType(): string
+    {
+        return 'line';
     }
 }
